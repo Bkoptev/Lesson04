@@ -39,7 +39,7 @@ public class StudentPedin extends Student implements WriteToDbInterface, ParseFi
      * Open connection to MySQL DB
      */
     private void openConnectionToDb() throws IOException {
-        String path = "D:/Java_lessons/Lesson04/MySQL-DB-Pedin.txt";
+        String path = "D:/Java_lessons/Lesson04/MS SQL-DB.txt";
         fileWriter = new FileWriter(path);
         printWriter = new PrintWriter(fileWriter);
     }
@@ -50,7 +50,7 @@ public class StudentPedin extends Student implements WriteToDbInterface, ParseFi
     private void closeConnectionToDb() throws IOException {
         printWriter.close();
         fileWriter.close();
-        System.out.println("Close connection to MySQL DB");
+        System.out.println("Close connection to MS SQL-DB");
     }
 
     /**
