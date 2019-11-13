@@ -66,7 +66,7 @@ public class StudentPedin extends Student implements WriteToDbInterface, ParseFi
         try {
             scan = new Scanner(file);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("No such file or directory");
         }
 
         if (scan != null) {
