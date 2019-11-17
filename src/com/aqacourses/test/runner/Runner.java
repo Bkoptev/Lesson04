@@ -48,7 +48,7 @@ public class Runner {
 
         // Imagine that GUI opens one more time
 
-        ArrayList dataPedin = new ArrayList<>();
+        ArrayList dataPedin;
 
         StudentPedin studentPedin = new StudentPedin();
 

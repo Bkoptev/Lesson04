@@ -45,16 +45,19 @@ public abstract class AbstractStudent {
      */
     public String fileLocation() {
 
-        System.out.println("Please enter path to the file:");
+        System.out.println("Please enter path to the file or press Enter to use default file location");
         Scanner scanner = new Scanner(System.in);
         String pathToFile = scanner.nextLine();
+        String defaultLocation = "Pedin.txt";
         if (isLineNotEmpty(pathToFile)) {
             return pathToFile;
+        } else {
+            return defaultLocation;
         }
-        return "No such file or directory";
     }
 
     /**
+     *
      * Opens GUI
      */
     public void openGui() {
@@ -64,8 +67,8 @@ public abstract class AbstractStudent {
     /**
      * Verify that string is not empty
      *
-     * @param line
-     * @return
+     * @param line string from input
+     * @return true or false
      */
     private boolean isLineNotEmpty(String line) {
         if (!line.isEmpty()) {
@@ -84,5 +87,23 @@ public abstract class AbstractStudent {
                 .format(Calendar.getInstance().getTime());
     }
 
+    /**
+     *
+     * @param Students list of students
+     *
+     * @return         true or false (valid or not)
+     */
 
+    public boolean validator (ArrayList<String> Students) {
+        String[] line = Students.get(0).split("\\s");
+        Integer age = Integer.valueOf(line[1]);
+        if (!line[0].equals("") && (age > 17 && age < 25) && (line[2].equals("male") || line[2].equals("female"))) {
+            return true;
+        } else {
+            return false;
+          }
+    }
 }
+
+
+

@@ -14,43 +14,48 @@ public class StudentPedin extends Student implements WriteToDbInterface, ParseFi
     private PrintWriter printWriter;
 
     /**
-     * Write student data to MySQL Db
+     * Write student data to MS-SQL-DB
      *
-     * @param data
+     * @param data list of students from pedin file
      */
     @Override
     public void writeToDb(List<String> data) {
         try {
             openConnectionToDb();
-            if (isDataValid(data)) {
-                for (String datum : data) {
-                    printWriter.println(getDate() + " - " + datum);
+            for (int i = 0; i < data.size(); i++) {
+                ArrayList studentData = new ArrayList();
+                studentData.add(data.get(i));
+                if (isDataValid(studentData) && validator(studentData)) {
+
+                        printWriter.println(getDate() + " - " + studentData);
+
                 }
-                printWriter.print("=====================\n");
-                System.out.println("All data is written to MySQL DB");
-                closeConnectionToDb();
             }
+            printWriter.print("=====================\n");
+            System.out.println("All data is written to MS-SQL-DB");
+            closeConnectionToDb();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * Open connection to MySQL DB
+     * Open connection to MS-SQL-DB
      */
     private void openConnectionToDb() throws IOException {
-        String path = "D:/Java_lessons/Lesson04/MS SQL-DB.txt";
+        String path = "MS-SQL-DB.txt";
         fileWriter = new FileWriter(path);
         printWriter = new PrintWriter(fileWriter);
     }
 
     /**
-     * CLose connection to MySQL DB
+     * CLose connection to MS-SQL-DB
      */
     private void closeConnectionToDb() throws IOException {
         printWriter.close();
         fileWriter.close();
-        System.out.println("Close connection to MS SQL-DB");
+        System.out.println("Close connection to MS-SQL-DB");
     }
 
     /**
@@ -70,12 +75,12 @@ public class StudentPedin extends Student implements WriteToDbInterface, ParseFi
         }
 
         if (scan != null) {
+
             while (scan.hasNextLine()) {
                 pedinStudents.add(scan.nextLine());
+                }
             }
-        }
+
         return pedinStudents;
     }
-
-
 }

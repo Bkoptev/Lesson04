@@ -41,7 +41,7 @@ public class StudentMogilyanka extends Student implements WriteToDbInterface {
      * Open connection to Postgres DB
      */
     private void openConnection() throws IOException {
-        String path = "D:/Java_lessons/Lesson04/Postgres-DB.txt";
+        String path = "Postgres-DB.txt";
         file = new File(path);
         bufferedWriter = new BufferedWriter(new FileWriter(file, true));
     }
