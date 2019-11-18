@@ -26,15 +26,12 @@ public class StudentPedin extends Student implements WriteToDbInterface, ParseFi
                 ArrayList studentData = new ArrayList();
                 studentData.add(data.get(i));
                 if (isDataValid(studentData) && validator(studentData)) {
-
-                        printWriter.println(getDate() + " - " + studentData);
-
+                    printWriter.println(getDate() + " - " + studentData);
                 }
             }
             printWriter.print("=====================\n");
             System.out.println("All data is written to MS-SQL-DB");
             closeConnectionToDb();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -60,8 +57,8 @@ public class StudentPedin extends Student implements WriteToDbInterface, ParseFi
 
     /**
      *
-     * @param pathToFile receive path to file where are described students from Pedin
-     * @return           list od Pedin students
+     * @param  pathToFile receive path to file where are described students from Pedin
+     * @return            list od Pedin students
      */
     @Override
     public ArrayList ParseFile (String pathToFile) {
@@ -73,14 +70,11 @@ public class StudentPedin extends Student implements WriteToDbInterface, ParseFi
         } catch (FileNotFoundException e) {
             System.out.println("No such file or directory");
         }
-
         if (scan != null) {
-
             while (scan.hasNextLine()) {
                 pedinStudents.add(scan.nextLine());
-                }
             }
-
+        }
         return pedinStudents;
     }
 }

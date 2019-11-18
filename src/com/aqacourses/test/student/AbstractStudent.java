@@ -67,8 +67,8 @@ public abstract class AbstractStudent {
     /**
      * Verify that string is not empty
      *
-     * @param line string from input
-     * @return true or false
+     * @param  line string from input
+     * @return      true or false
      */
     private boolean isLineNotEmpty(String line) {
         if (!line.isEmpty()) {
@@ -89,9 +89,9 @@ public abstract class AbstractStudent {
 
     /**
      *
-     * @param Students list of students
+     * @param  Students list of students
      *
-     * @return         true or false (valid or not)
+     * @return          true or false (valid or not)
      */
 
     public boolean validator (ArrayList<String> Students) {
@@ -101,7 +101,7 @@ public abstract class AbstractStudent {
             return true;
         } else {
             return false;
-          }
+        }
     }
 }
 
